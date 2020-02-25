@@ -39,8 +39,7 @@ double IsakMath::Statistics::correlation_coefficient(const std::vector<double> &
 }
 
 IsakMath::linear_function IsakMath::Statistics::linear_regression(const std::vector<double> &a, const std::vector<double> &b) {
-    double b1 = correlation_coefficient(a, b) * (std::sqrt(variance(a)) / std::sqrt(variance(b)));
+    double b1 = covariance(a, b) / variance(a);
     double b0 = mean(b) - b1 * mean(a);
-
     return linear_function(b1, b0);
 }
