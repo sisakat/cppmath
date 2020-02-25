@@ -36,6 +36,16 @@ namespace IsakMath {
     return *this;
   }
 
+  vector& vector::rotate2d(double angle) {
+    if (size() <= 1) throw std::invalid_argument("2d rotation not possible for one dimensional vectors");
+    if (size() >= 3) throw std::invalid_argument("2d rotation not possible for vectors of dimensions greater than 2");
+    double x = values[0];
+    double y = values[1];
+    values[0] = x * std::cos(angle) - y * std::sin(angle);
+    values[1] = x * std::sin(angle) + y * std::cos(angle);
+    return *this;
+  }
+
   double& vector::operator[](int i) {
     return values[i];
   }

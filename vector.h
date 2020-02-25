@@ -32,6 +32,11 @@ namespace IsakMath {
       /// @param normal a normal vector defining the mirror vector
       vector& mirror(const vector& normal);
 
+      /// Rotates the vector by the given angle counterclockwise around the origin
+      /// Note that this function only works with 2d vectors
+      /// @param angle rotation angle in radiants
+      vector& rotate2d(double angle);
+
       double& operator[](int i); 
       double operator[](int i) const;
       vector& operator+=(const vector &v);
